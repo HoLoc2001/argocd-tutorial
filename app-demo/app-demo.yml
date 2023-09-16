@@ -11,7 +11,7 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matchLabels: 
+    matchLabels:
       app: app-demo
   template:
     metadata:
@@ -19,11 +19,11 @@ spec:
         app: app-demo
     spec:
       containers:
-      - name: app-demo
-        image: nginx
-        ports:
-        - name: web
-          containerPort: 80
+        - name: app-demo
+          image: nginx
+          ports:
+            - name: web
+              containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -35,10 +35,10 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name:  http
-    port:  80
-    targetPort: 80
-    protocol: TCP
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
   selector:
     app: app-demo
 ---
@@ -49,20 +49,20 @@ metadata:
   namespace: app-demo
 spec:
   rules:
-  - host: "app-demo.kienle.xyz"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: app-demo-svc 
-            port:
-              number: 80
+    - host: "app-demo.hotanloc.xyz"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: app-demo-svc
+                port:
+                  number: 80
   tls:
-  - hosts:
-    - app-demo.kienle.xyz
-    secretName: app-demo-tls-secret              
+    - hosts:
+        - app-demo.hotanloc.xyz
+      secretName: app-demo-tls-secret
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -74,6 +74,6 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "app-demo.kienle.xyz"
+  commonName: "app-demo.hotanloc.xyz"
   dnsNames:
-    - "app-demo.kienle.xyz"
+    - "app-demo.hotanloc.xyz"
