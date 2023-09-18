@@ -6,13 +6,13 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: abc@gmail.com
+    email: hotanloc2001@gmail.com
     privateKeySecretRef:
       name: letsencrypt-production
     solvers:
       - dns01:
           cloudflare:
-            email: abc@gmail.com
+            email: hotanloc2001@gmail.com
             apiTokenSecretRef:
               name: cloudflare-token-secret
               key: cloudflare-token
@@ -27,5 +27,5 @@ metadata:
   namespace: cert-manager
 type: Opaque
 stringData:
-  cloudflare-token: <token> # Lấy API key ở đây https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/#api-tokens
+  cloudflare-token: CzxxqelSjUdDF4FXLAgKb2Z9WWkqbJZXWajLRQS5 # Lấy API key ở đây https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/#api-tokens
 
