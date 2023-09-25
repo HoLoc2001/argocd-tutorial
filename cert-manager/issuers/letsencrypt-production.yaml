@@ -27,5 +27,5 @@ metadata:
   namespace: cert-manager
 type: Opaque
 stringData:
-  cloudflare-token: CzxxqelSjUdDF4FXLAgKb2Z9WWkqbJZXWajLRQS5 # Lấy API key ở đây https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/#api-tokens
+  cloudflare-token: token # Lấy API key ở đây https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/#api-tokens
 
