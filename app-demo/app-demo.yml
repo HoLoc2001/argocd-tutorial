@@ -62,7 +62,7 @@ spec:
   tls:
     - hosts:
         - app-demo.hotanloc.xyz
-      secretName: app-demo-tls-secret
+      secretName: app-demo-cert-tnvt8
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -70,7 +70,7 @@ metadata:
   name: app-demo-cert
   namespace: app-demo
 spec:
-  secretName: app-demo-tls-secret
+  secretName: app-demo-cert-tnvt8
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
