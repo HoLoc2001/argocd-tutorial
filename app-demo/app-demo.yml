@@ -64,16 +64,16 @@ spec:
         - app-demo.hotanloc.xyz
       secretName: letsencrypt-prod
 ---
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: app-demo-cert
-  namespace: app-demo
-spec:
-  secretName: letsencrypt-prod
-  issuerRef:
-    name: letsencrypt-production
-    kind: ClusterIssuer
-  commonName: "app-demo.hotanloc.xyz"
-  dnsNames:
-    - "app-demo.hotanloc.xyz"
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: app-demo-cert
+#   namespace: app-demo
+# spec:
+#   secretName: letsencrypt-prod
+#   issuerRef:
+#     name: letsencrypt-production
+#     kind: ClusterIssuer
+#   commonName: "app-demo.hotanloc.xyz"
+#   dnsNames:
+#     - "app-demo.hotanloc.xyz"
