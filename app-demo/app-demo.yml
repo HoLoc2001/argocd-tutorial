@@ -62,7 +62,7 @@ spec:
   tls:
     - hosts:
         - app-demo.hotanloc.xyz
-      secretName: es01
+      secretName: elastic-cluster
 ---
 # apiVersion: cert-manager.io/v1
 # kind: Certificate
