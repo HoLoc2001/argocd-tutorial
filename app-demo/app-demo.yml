@@ -71,7 +71,7 @@ metadata:
   name: app-demo-ingress
   namespace: app-demo
   labels:
-    app.kubernetes.io/name: elastic-cluster
+    app.kubernetes.io/name: app-demo
     app.kubernetes.io/version: v1
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -80,8 +80,8 @@ metadata:
 spec:
    secretName: letsencrypt-prod
    issuerRef:
-    name: letsencrypt-production
-    kind: ClusterIssuer
+     name: letsencrypt-production
+     kind: ClusterIssuer
    commonName: "app-demo.hotanloc.xyz"
    dnsNames:
      - "app-demo.hotanloc.xyz"
