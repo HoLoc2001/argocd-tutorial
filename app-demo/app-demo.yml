@@ -62,7 +62,7 @@ spec:
   tls:
     - hosts:
         - app-demo.hotanloc.xyz
-      secretName: letsencrypt-prod
+      secretName: es01
 ---
 # apiVersion: cert-manager.io/v1
 # kind: Certificate
