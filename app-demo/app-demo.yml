@@ -47,6 +47,10 @@ kind: Ingress
 metadata:
   name: app-demo-ingress
   namespace: app-demo
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubesphere.io/creator: loc
+    nginx.ingress.kubernetes.io/service-upstream: 'true'
 spec:
   rules:
     - host: "app-demo.hotanloc.xyz"
@@ -64,27 +68,6 @@ spec:
         - app-demo.hotanloc.xyz
       secretName: app-demo-ingress
 ---
-
-kind: Ingress
-apiVersion: networking.k8s.io/v1
-metadata:
-  name: app-demo-ingress
-  namespace: app-demo
-  labels:
-    app.kubernetes.io/name: app-demo
-    app.kubernetes.io/version: v1
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    kubesphere.io/creator: loc
-    nginx.ingress.kubernetes.io/service-upstream: 'true'
-spec:
-   secretName: letsencrypt-prod
-   issuerRef:
-     name: letsencrypt-production
-     kind: ClusterIssuer
-   commonName: "app-demo.hotanloc.xyz"
-   dnsNames:
-     - "app-demo.hotanloc.xyz"
       
 # apiVersion: cert-manager.io/v1
 # kind: Certificate
