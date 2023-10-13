@@ -43,31 +43,32 @@ spec:
   selector:
     app: app-demo
 ---
-apiVersion: networking.k8s.io/v1
 kind: Ingress
+apiVersion: networking.k8s.io/v1
 metadata:
-  name: app-demo-ingress
-  namespace: app-demo
+  name: argocd
+  namespace: argocd
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    kubesphere.io/creator: loc
+    kubesphere.io/creator: admin
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     nginx.ingress.kubernetes.io/service-upstream: 'true'
 spec:
+  tls:
+    - hosts:
+        - argocd.hotanloc.xyz
+      secretName: argocd-hggk7
   rules:
-    - host: "app-demo.hotanloc.xyz"
+    - host: argocd.hotanloc.xyz
       http:
         paths:
           - path: /
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
-                name: app-demo-svc
+                name: argocd-server
                 port:
-                  number: 80
-  tls:
-    - hosts:
-        - app-demo.hotanloc.xyz
-      secretName: app-demo-ingress
+                  number: 443
 ---
       
 # apiVersion: cert-manager.io/v1
